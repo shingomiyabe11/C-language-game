@@ -16,6 +16,7 @@ char* show_hand(int hd_num) {
     return hd_name[hd_num - 1];
 }
 
+/* じゃんけんの対戦結果 */
 void judge(int cp_hand, int hand) {
     printf("%s　対　%s で　", show_hand(cp_hand), show_hand(hand));
     if (cp_hand == hand) {
@@ -51,6 +52,7 @@ void game(int n) {
 }
 
 void final_winner() {
+    /* 最終結果を表示する */
     printf("\n*** 最終結果 ***\n");
     printf("%d 対 %d で　", pc.wincount, user.wincount);
     if (pc.wincount == user.wincount) {
@@ -71,7 +73,9 @@ int main() {
     
     pc.name = "Computer";
     
+    /* 最大30字の文字数が表示可能 */
     char st[30];
+    /* ユーザ名を入力する */
     printf("あなたの名前を入力して下さい：");
     scanf("%s", st);
     user.name = st;
